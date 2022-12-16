@@ -1,7 +1,7 @@
 # Multiple SSH keys for work or personal project 
 
 
-## Múltiplas chave SSH para projeto de trabalho ou pessoal
+## Múltiplas chave SSH para projeto pessoal ou profissional
 
 - Criar pasta de trabalho
 - Criar chave ssh par trabalho
@@ -9,10 +9,15 @@
 - Configurar um arquivo com parâmetros que vão sobre escrver o .gitconfig padrão
 - Informar no .gitconfig padrão qual o nome da pasta dos projetos profissionais e o nome do arquivo de configurações
 - Criar dentro da pasta .ssh um arquivo de configuração par os alias do ssh. "config"
+- Reiniciar o computador
+- Testar conexãoe chaves como servidor do github
 
-### Organizando git e suas chaves ssh para trabalhos profissionais
+
+## Organizando o Git e as chaves SSH
 
 ### Arquivo de configuração padrão do seu usuário ".gitconfig"
+
+.gitconfig
 ```
 [user]
   name = "seu nome"
@@ -27,8 +32,9 @@
 
 ---
 
-### Arquivo localizado na sua pasta de trabalhos ".gitconfig-work"
+### Arquivo localizado na sua pasta de trabalho ".gitconfig-work"
 
+.gitconfig-work
 ```
 [user]
   name = "Nome do seu usuário de trabalho"
@@ -38,7 +44,9 @@
   sshCommand = ssh -i ~/.ssh/<nome da sua chave ssh pra trabalho>
 ```
 
-### Arquivo config na masta .ssh
+### Arquivo "config" localizado na pasta ~/.ssh/
+
+config
 ```
 # Conta pessoal
 Host github.com
@@ -52,6 +60,18 @@ Host github.com-work
    User git
    IdentityFile ~/.ssh/<nome da chave ssh para a conta de trabalho>
 
+```
+
+### Testando conexão e chaves ssh como o servidor do GitHub
+
+Exemplo:
+
+```
+cd ~/work
+
+ssh git@github.com
+
+ssh git@github.com-work
 ```
 
 
